@@ -1,10 +1,11 @@
-import express = require('express');
+import express from 'express';
 
 import bodyParser from 'body-parser';
 import helmet from "helmet";
 import cors from "cors";
 
-import { CreateUser } from './controller';
+import { CreateUser, GetUserInfo } from './controller';
+import { RequestValidate } from './middleware';
 
 let app: express.Application = express();
 
@@ -26,6 +27,7 @@ rutas.route('/').get((req, res) => {
 })
 
 rutas.route('/CreateUser').post(CreateUser)
+rutas.route('/GetUserInfo').post(RequestValidate ,GetUserInfo)
 
 app.use(rutas)
 
