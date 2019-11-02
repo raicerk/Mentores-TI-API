@@ -1,0 +1,26 @@
+{
+  "name": "mentores-ti-api",
+  "version": "1.0.0",
+  "description": "Sitio web de mentores y aprendices de TI",
+  "main": "app.ts",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raicerk/Mentores-TI-API.git"
+  },
+  "keywords": [
+    "nodejs",
+    "typescript",
+    "express",
+    "docker",
+    "postgresql"
+  ],
+  "author": "Juan Mora",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/raicerk/Mentores-TI-API/issues"
+  },
+  "homepage": "https://github.com/raicerk/Mentores-TI-API#readme"
+}
