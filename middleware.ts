@@ -1,6 +1,7 @@
 import * as jwt from 'jsonwebtoken';
 import moment from 'moment';
 import { Request, Response, NextFunction } from 'express';
+import { SALT } from './const'
 
 export const RequestValidate = (req: Request, res: Response, next: NextFunction) => {
 
@@ -12,7 +13,7 @@ export const RequestValidate = (req: Request, res: Response, next: NextFunction)
             });
         }
 
-        let payload: any = jwt.verify(req.headers.authorization.replace("Bearer ", ""), 'misalt');
+        let payload: any = jwt.verify(req.headers.authorization.replace("Bearer ", ""), SALT);
 
         if (payload.exp <= moment().unix()) {
             return res.status(401).send({

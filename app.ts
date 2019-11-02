@@ -1,9 +1,9 @@
-import express from 'express';
-
+import express, { Request, Response, NextFunction } from 'express';
 import bodyParser from 'body-parser';
 import helmet from "helmet";
 import cors from "cors";
 
+import { PORT } from './const';
 import { CreateUser, GetUserInfo } from './controller';
 import { RequestValidate } from './middleware';
 
@@ -13,24 +13,18 @@ app.use(bodyParser.json())
 app.use(helmet())
 app.use(cors())
 
-app.use((req, res, next) => {
+app.use((req: Request, res: Response, next: NextFunction) => {
     res.setHeader('Content-Type', 'application/json')
     next()
 });
 
-let rutas = express.Router()
+let rts = express.Router()
 
-rutas.route('/').get((req, res) => {
-    res.status(200).json({
-        response: 'Hola Mundo'
-    })
-})
+rts.route('/CreateUser').post(CreateUser)
+rts.route('/GetUserInfo').post(RequestValidate, GetUserInfo)
 
-rutas.route('/CreateUser').post(CreateUser)
-rutas.route('/GetUserInfo').post(RequestValidate ,GetUserInfo)
+app.use(rts)
 
-app.use(rutas)
-
-app.listen(3000, () => {
-    console.log('App listening on port 3000!');
+app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}!`);
 });
