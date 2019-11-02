@@ -8,7 +8,6 @@ export const RequestValidate = (req: Request, res: Response, next: NextFunction)
 
         if (!req.headers.authorization) {
             return res.status(403).send({
-                code: "A001",
                 description: "Token invalido"
             });
         }
@@ -17,7 +16,6 @@ export const RequestValidate = (req: Request, res: Response, next: NextFunction)
 
         if (payload.exp <= moment().unix()) {
             return res.status(401).send({
-                code: "A002",
                 description: "El Token ha expirado"
             });
         } else {
@@ -27,12 +25,10 @@ export const RequestValidate = (req: Request, res: Response, next: NextFunction)
 
         if (err.name == "TokenExpiredError") {
             return res.status(401).send({
-                code: "A002",
                 description: "El Token ha expirado"
             });
         } else {
             return res.status(401).send({
-                code: "A001",
                 description: "Token invalido"
             });
         }
