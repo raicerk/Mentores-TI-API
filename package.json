@@ -4,7 +4,8 @@
   "description": "Sitio web de mentores y aprendices de TI",
   "main": "app.ts",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "tsc": "tsc"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/raicerk/Mentores-TI-API/issues"
   },
-  "homepage": "https://github.com/raicerk/Mentores-TI-API#readme"
+  "homepage": "https://github.com/raicerk/Mentores-TI-API#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "typescript": "^3.6.4"
+  }
 }
