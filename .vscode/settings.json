@@ -1,0 +1,13 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "mydb",
+            "dialect": "PostgreSQL",
+            "name": "Docker",
+            "password": "qwerty123",
+            "port": 5432,
+            "server": "localhost",
+            "username": "raicerk"
+        }
+    ]
+}
