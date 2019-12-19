@@ -5,15 +5,15 @@ services:
     image: "postgres"
     container_name: "pgdb"
     environment:
-      - POSTGRES_USER=raicerk
+      - POSTGRES_USER=mntrs
       - POSTGRES_PASSWORD=qwerty123
-      - POSTGRES_DB=mydb
+      - POSTGRES_DB=mentoresdb
     ports:
       - "5432:5432"
-  mentores-ti-api:
-    image: mentores-ti-api
-    build: .
-    environment:
-      NODE_ENV: production
-    ports:
-      - 3000:3000
+  # mentores-ti-api:
+  #   image: mentores-ti-api
+  #   build: .
+  #   environment:
+  #     NODE_ENV: production
+  #   ports:
+  #     - 3000:3000
